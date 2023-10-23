@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="SignItOnline">
+
+    <test name="Test">
+    
+            <classes> 
+            <class name="org.signitonline.testcase.SendDocket" />
+            <class name="org.signitonline.testcase.CreateTemplate" />
+            <class name="org.signitonline.testcase.LibrarySection" />
+            <class name="org.signitonline.testcase.TopMenuItems" />
+            <class name="org.signitonline.testcase.ArchiveDocket" />
+        </classes>
+        
+     </test>
+     
+ </suite>
