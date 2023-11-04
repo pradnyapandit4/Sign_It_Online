@@ -22,7 +22,7 @@ public class SendDocket extends BaseClass {
 	By bySDB = By.name("next");
 	
 	@Test(groups = {"AllTest","SendDocket"})
-	public void sendDocket() throws InterruptedException 
+	public void sendDocket_usingPDF() throws InterruptedException 
 	{
 		wait = new WebDriverWait(driver,Duration.ofSeconds(80));
 		

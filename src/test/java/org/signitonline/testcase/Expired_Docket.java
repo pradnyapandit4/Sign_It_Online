@@ -17,6 +17,9 @@ public class Expired_Docket extends BaseClass{
 	By byEDB = By.xpath("//div[1]/div[3]/div[2]/div[6]/a[3]/img[1]");
 	By bySED = By.name("expire_day");
 	By byESB = By.xpath("//button[@class='btn btn-sm btn-primary setExpire']");
+	By byENB = By.xpath("//button[@class='btn btn-sm expireNow']");
+	By byCF = By.id("btn-filter");
+	By byED = By.xpath("//li[contains(text(),'Expired')]");
 	
 	@Test
 	public void expired_docket_Setbutton()
@@ -67,6 +70,41 @@ public class Expired_Docket extends BaseClass{
 		driver.findElement(byESB).click();
 		
 		System.out.println("Date has been Set!!");
+		
+	}
+	
+	@Test
+	public void expired_docket_Expirenowbutton()
+	{
+		wait = new WebDriverWait(driver,Duration.ofSeconds(80));
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLibs));    //library section
+		driver.findElement(byLibs).click();
+		
+		//Docket Status Dropdown
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byDSDrp));
+		driver.findElement(byDSDrp).click();
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byIPD));    //Inprogress Docket
+		driver.findElement(byIPD).click();
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byEDB));    //Expire Docket button
+		driver.findElement(byEDB).click();
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byENB));    //Expire Now button
+		driver.findElement(byENB).click();
+		
+		System.out.println("Docket has been Expired!!");
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byCF));    //Clear filter
+		driver.findElement(byCF).click();
+		
+		//Docket Status Dropdown
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byDSDrp));
+		driver.findElement(byDSDrp).click();
+		
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byED));    //Expire Docket 
+		driver.findElement(byED).click();
 		
 	}
 	
