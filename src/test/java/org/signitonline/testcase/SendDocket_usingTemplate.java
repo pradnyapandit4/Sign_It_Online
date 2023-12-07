@@ -5,12 +5,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.signitonline.utilities.Utilities;
 import org.testng.annotations.Test;
+import org.openqa.selenium.JavascriptExecutor;
 
 public class SendDocket_usingTemplate extends BaseClass {
 
-	By bySNDB = By.xpath("//span[contains(text(),'Send New Docket')]");
-	By bySTem = By.xpath("//div[@data-name='MODULE 4.pdf']");
+	By bySNDB = By.xpath("//a[@title='Send Docket']/img[1]");
+	By bySTem = By.xpath("//div[@data-name='PDF3.pdf']");
 	By byNB = By.id("nextBtn");
 	By byEPN = By.id("partyName");
 	By byEPE = By.id("partyEmail");
@@ -23,13 +25,19 @@ public class SendDocket_usingTemplate extends BaseClass {
 	@Test
 	public void sendDocket()
 	{
-		wait = new WebDriverWait(driver,Duration.ofSeconds(60));
+		wait = new WebDriverWait(driver,Duration.ofSeconds(80));
+		
+		Utilities.hardWait(10);
 		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(bySNDB));
 		driver.findElement(bySNDB).click();
 		
+		Utilities.hardWait(8);
+		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(bySTem));
 		driver.findElement(bySTem).click();
+		
+		Utilities.hardWait(8);
 		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byNB));
 		driver.findElement(byNB).click();
@@ -48,10 +56,18 @@ public class SendDocket_usingTemplate extends BaseClass {
 		WebElement entermsg = driver.findElement(byEM);
 		entermsg.sendKeys("Hello");
 		
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byNB2));
-		driver.findElement(byNB2).click();
+//		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byNB2));
+//		driver.findElement(byNB2).click();
+		
+		//scrolling page till we find element
+		//JavascriptExecutor js = (JavascriptExecutor)driver;
+		WebElement flag = driver.findElement(By.xpath("//div[@class='col-sm-5']/button[@name='next']"));
+		flag.click();
+		//js.executeScript("arguments[0].scrollIntoView();", flag);
 		
 		System.out.println("Successfully Updated Party Details!!");
+		
+		Utilities.hardWait(8);
 		
 		//Signature
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(bySign));
@@ -62,6 +78,8 @@ public class SendDocket_usingTemplate extends BaseClass {
 		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(bySDB));   //Send docket button
 		driver.findElement(bySDB).click();
+		
+		Utilities.hardWait(10);
 		
 		System.out.println("Successfully Send Docket!!");
 		

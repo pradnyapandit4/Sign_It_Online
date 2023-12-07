@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.signitonline.testcase.SendDocket">
+      <class name="org.signitonline.testcase.Resend_Docket">
         <methods>
           <include name="tearDown"/>
-          <include name="sendDocket"/>
           <include name="setup"/>
+          <include name="resend_docket_fun"/>
         </methods>
-      </class> <!-- org.signitonline.testcase.SendDocket -->
+      </class> <!-- org.signitonline.testcase.Resend_Docket -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

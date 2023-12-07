@@ -38,8 +38,8 @@ public class ReminderDocket extends BaseClass {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byTEC));    // Everyday CheckBox
 		driver.findElement(byTEC).click();
 		
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byCDD));    // Custom Days Dropdown
-		driver.findElement(byCDD).sendKeys("3");
+//		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byCDD));    // Custom Days Dropdown
+//		driver.findElement(byCDD).sendKeys("3");
 		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byRSB));    //Reminder Set button
 		driver.findElement(byRSB).click();

@@ -35,7 +35,15 @@ public class ArchiveDocket extends BaseClass  {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byArMo));    //Archived Module
 		driver.findElement(byArMo).click();
 		
-		System.out.println("Docket Archived Successfully!!");
-		
+		Boolean Expected = driver.findElement(By.xpath("//div[1]/div[@class='col-md-7 party_div']/h4[1]")).isDisplayed();
+		if(Expected)
+		{
+			System.out.println("Docket Archived Successfully!!");
+		}
+		else
+		{
+			System.out.println("Docket not Archived Successfully!!");
+		}
+				
 	}
 }

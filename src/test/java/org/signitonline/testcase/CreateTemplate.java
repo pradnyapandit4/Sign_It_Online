@@ -7,6 +7,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.signitonline.utilities.Utilities;
 import org.testng.annotations.Test;
 
 public class CreateTemplate extends BaseClass {
@@ -27,9 +28,11 @@ public class CreateTemplate extends BaseClass {
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byCT));
 		driver.findElement(byCT).click();
 		
-		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byFU));
-		WebElement fileupload = driver.findElement(byFU);
-		fileupload.sendKeys("C:/Users/NILESH PANDIT/Dropbox/PC/Desktop/Internship/Sign it Online/PDF4.pdf");
+		Utilities.hardWait(8);
+
+		driver.findElement(byFU).sendKeys("C:/Users/NILESH PANDIT/Dropbox/PC/Desktop/Internship/Sign it Online/PDF4.pdf");
+		
+		Utilities.hardWait(8);
 		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byNB));
 		driver.findElement(byNB).click();

@@ -4,6 +4,9 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.signitonline.utilities.Utilities;
+import org.testng.Reporter;
+import org.testng.annotations.Test;
 
 public class Resend_Docket extends BaseClass {
 
@@ -18,12 +21,19 @@ public class Resend_Docket extends BaseClass {
 	By bypdf = By.xpath("//img[@class='current-img']");
 	By bySDB = By.xpath("//button[contains(text(),'Send Docket')]");
 	
+	@Test
 	public void resend_docket_fun()
 	{
 		wait = new WebDriverWait(driver,Duration.ofSeconds(80));
 		
+		Reporter.log("Land on SignIt Online Dashboard", true);
+		
+		Utilities.hardWait(5);
+		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLibs));    //library section
 		driver.findElement(byLibs).click();
+		
+		Utilities.hardWait(3);
 		
 		//Docket Status Dropdown
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byDSDrp));

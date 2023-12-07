@@ -7,17 +7,18 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.signitonline.utilities.Utilities;
 import org.testng.annotations.Test;
 
 public class TopMenuItems extends BaseClass {
 
-	By byAdSign = By.id("adapt_sign");
+	By byAdSign = By.xpath("//div[@id='adapt_signature']/img[@id='adapt_sign']");
 	By byANS = By.xpath("//button[contains(text(),'Adopt New Sign')]");
 	By byEFN = By.id("partyFullName");
 	By byCSign = By.xpath("//div[1]/div[1]/div[1]/label[1]/span[1]");
 	By bySSign = By.xpath("//div[3]/button[3]");
-	By byCB = By.id("wallet");
-	By byCloseb = By.xpath("//button[@class='close']");
+	By byCB = By.xpath("//div[@class='col-sm-9 d-flex justify-content-end headerMenus']/div/a[@title='Credit Balance']");
+	By byCloseb = By.xpath("//div[@id='add_credit']/div[1]/div[1]/div[1]/button[1]/span[1]");
 	By byDEM = By.xpath("//b[contains(text(),'DEM')]");
 	By byProfile = By.linkText("View Company Info");
 	By byCancel = By.xpath("//a[contains(text(),'Cancel')]");
@@ -27,6 +28,8 @@ public class TopMenuItems extends BaseClass {
 	public void topMenuItems() throws InterruptedException
 	{
 		wait = new WebDriverWait(driver,Duration.ofSeconds(80));
+		
+		Utilities.hardWait(5);
 		
 		//Adopt Sign
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byAdSign));
@@ -48,6 +51,8 @@ public class TopMenuItems extends BaseClass {
 		//Notification
 //		Thread.sleep(2000);
 //		driver.findElement(By.id("notification")).click();
+		
+		Utilities.hardWait(3);
 		
 		//Credit Balance
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byCB));

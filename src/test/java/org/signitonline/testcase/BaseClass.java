@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.signitonline.utilities.Utilities;
+import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -36,6 +37,8 @@ public class BaseClass {
 		driver.get("https://www.apps.signitonline.co.uk/");
 		Utilities.hardWait(3);
 		
+		Reporter.log("Browser session started", true);
+		
 		wait = new WebDriverWait(driver,Duration.ofSeconds(80));
 		
 		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byUsername));
@@ -57,6 +60,7 @@ public class BaseClass {
 	public void tearDown() throws InterruptedException
 	{
 		Utilities.hardWait(3);
+		Reporter.log("Browser session ended", true);
 		driver.quit();
 	}
 	
